@@ -6,15 +6,20 @@ set autoread
 set wildmenu
 set ruler
 set cmdheight=2
+set showcmd
 set ignorecase
 set smartcase
 set incsearch
+set cursorline
 
 set showmatch
 set mat=2
 
+set foldenable
+set foldlevelstart=10
+set foldmethod=indent
 set foldcolumn=1
-set nu
+set number
 
 syntax enable
 colorscheme desert
@@ -38,3 +43,4 @@ let g:netrw_liststyle=3
 let g:netrw_chgwin=2
 
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,nbsp:·
