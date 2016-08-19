@@ -11,6 +11,7 @@ set ignorecase
 set smartcase
 set incsearch
 set cursorline
+set autochdir
 
 set showmatch
 set mat=2
