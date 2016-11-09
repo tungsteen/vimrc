@@ -7,10 +7,10 @@ let iCanHazVundle=1
 if has("unix")
     let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
     if !filereadable(vundle_readme)
-	echo "Installing Vundle..."
-	echo ""
-	silent !mkdir -p ~/.vim/bundle    
-	silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+    echo "Installing Vundle..."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle    
+    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
         let iCanHazVundle=0
     endif
 endif
@@ -27,7 +27,7 @@ endif
 
 Plugin 'gmarik/Vundle.vim'
 " code and files founder
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 " code checker
 Plugin 'scrooloose/syntastic'
 " python-pep8
@@ -37,6 +37,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " git integration
 Plugin 'tpope/vim-fugitive'
+" nerd tree
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 
@@ -67,11 +69,11 @@ set showmatch
 set mat=2
 
 set foldenable
-set foldlevelstart=10
 set foldmethod=indent
-set foldcolumn=1
+set foldlevel=99
 set number
 
+let python_highlight_all=1
 syntax enable
 colorscheme desert
 set background=dark
@@ -80,18 +82,30 @@ set nobackup
 set nowb
 set noswapfile
 
-set expandtab
 set smarttab
 
-set shiftwidth=4
-set tabstop=4
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 | 
+    \ set softtabstop=4 | 
+    \ set shiftwidth=4 | 
+    \ set textwidth=79 | 
+    \ set expandtab | 
+    \ set autoindent | 
+    \ set fileformat=unix | 
 
-set ai
-set si
+au BufNewFile,BufRead *.js,*.html,*.css,*.c,*.h,*.cpp,*.cs
+    \ set tabstop=2 | 
+    \ set softtabstop=2 | 
+    \ set shiftwidth=2 | 
+    \ set expandtab |
+
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.cpp,*.h match BadWhitesace /\s\+$/
+
+set encoding=utf-8
 set wrap
 
 let g:netrw_liststyle=3
 let g:netrw_chgwin=2
 
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,nbsp:·
