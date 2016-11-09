@@ -39,6 +39,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 " nerd tree
 Plugin 'scrooloose/nerdtree'
+" you complete me
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
@@ -104,8 +106,11 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.cpp,*.h match BadWhitesace /\s\+$/
 set encoding=utf-8
 set wrap
 
-let g:netrw_liststyle=3
-let g:netrw_chgwin=2
+let g:ctrlp_max_files=65535
+let g:ctrlp_max_depth=255
+
+" let g:netrw_liststyle=3
+" let g:netrw_chgwin=2
 
 " set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,nbsp:·
