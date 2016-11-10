@@ -10,7 +10,7 @@ if has("unix")
     echo "Installing Vundle..."
     echo ""
     silent !mkdir -p ~/.vim/bundle    
-    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         let iCanHazVundle=0
     endif
 endif
